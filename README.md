@@ -7,7 +7,7 @@
 	- api.yml
 	- examples/morning-receipt.json
 	- examples/simple-receipt.json
-## Since data does *not* need to be persisted between runs, I am using the built-in "IMemoryCache"
+### Since data does *not* need to be persisted between runs, I am using the built-in "IMemoryCache"
 
 # Creating Docker Image
 - Open a terminal and navigate to the root directory of the project
@@ -37,10 +37,26 @@ docker run -p :8080 -p :8081 fetch-receipt-processor
 	- Example Body: 
 	```json
 	{
-		"storeName": "Walmart",
-		"date": "2021-01-01",
-		"total": 100.00
-	}
+      "retailer": "M&M Corner Market",
+      "purchaseDate": "2022-03-20",
+      "purchaseTime": "14:33",
+      "items": [
+        {
+          "shortDescription": "Gatorade",
+          "price": "2.25"
+        },{
+          "shortDescription": "Gatorade",
+          "price": "2.25"
+        },{
+          "shortDescription": "Gatorade",
+          "price": "2.25"
+        },{
+          "shortDescription": "Gatorade",
+          "price": "2.25"
+        }
+      ],
+      "total": "9.00"
+    }
 	```
 - Second, use the GET route with the ID to get the points for the receipt
 	- Example: GET http://0.0.0.0:8080/receipts/1/points
