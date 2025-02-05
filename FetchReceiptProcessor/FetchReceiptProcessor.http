@@ -1,0 +1,33 @@
+@FetchReceiptProcessor_HostAddress = http://localhost:5122
+
+GET {{FetchReceiptProcessor_HostAddress}}/{id}/points
+Accept: application/json
+
+###
+
+POST {{FetchReceiptProcessor_HostAddress}}/process
+Accept: application/json
+Content-Type: application/json
+{
+  "retailer": "M&M Corner Market",
+  "purchaseDate": "2022-03-20",
+  "purchaseTime": "14:33",
+  "items": [
+    {
+      "shortDescription": "Gatorade",
+      "price": "2.25"
+    },{
+      "shortDescription": "Gatorade",
+      "price": "2.25"
+    },{
+      "shortDescription": "Gatorade",
+      "price": "2.25"
+    },{
+      "shortDescription": "Gatorade",
+      "price": "2.25"
+    }
+  ],
+  "total": "9.00"
+}
+
+###
